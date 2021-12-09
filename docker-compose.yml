@@ -6,8 +6,8 @@ services:
       - 27017:27017
     container_name: mongo
     restart: always
-    # volumes:
-    #   - ./mongo_db_data_container:/data/db
+    volumes:
+      - ./mongo_db_data_container:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: adminimda
@@ -19,4 +19,4 @@ services:
       - "mongo:mongo"
     depends_on:
       - mongo
-    command: sh -c "sleep 15 && mongo --host mongo -u admin -p adminimda --authenticationDatabase admin --eval  'db.getSiblingDB(\"ShareLinker\").createUser({user:\"Sr233\", pwd:\"greatPassword_QWErty\", roles:[{role:\"readWrite\",db:\"ShareLinker\"}]});'"
+    command: sh -c "while ! mongo --host mongo -u admin -p adminimda --authenticationDatabase admin --eval  'db.getSiblingDB(\"ShareLinker\").createUser({user:\"Sr233\", pwd:\"greatPassword_QWErty\", roles:[{role:\"readWrite\",db:\"ShareLinker\"}]});' > /dev/null 2>&1; do sleep 0.1; done" 

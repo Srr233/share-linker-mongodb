@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  mongo:
+    image : mongo:latest
+    ports:
+      - 27017:27017
+    container_name: mongo
+    restart: always
+    # volumes:
+    #   - ./mongo_db_data_container:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: adminimda
+
+  mongosettings:
+    image : mongo:latest
+    container_name: mongoClientTemp
+    links:
+      - "mongo:mongo"
+    depends_on:
+      - mongo
+    command: sh -c "sleep 15 && mongo --host mongo -u admin -p adminimda --authenticationDatabase admin --eval  'db.getSiblingDB(\"ShareLinker\").createUser({user:\"Sr233\", pwd:\"greatPassword_QWErty\", roles:[{role:\"readWrite\",db:\"ShareLinker\"}]});'"

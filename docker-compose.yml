@@ -19,4 +19,5 @@ services:
       - "mongo:mongo"
     depends_on:
       - mongo
-    command: sh -c "while ! mongo --host mongo -u admin -p adminimda --authenticationDatabase admin --eval  'db.getSiblingDB(\"ShareLinker\").createUser({user:\"Sr233\", pwd:\"greatPassword_QWErty\", roles:[{role:\"readWrite\",db:\"ShareLinker\"}]});' > /dev/null 2>&1; do sleep 0.1; done" 
+    # command: sh -c "while ! mongo --host mongo -u admin -p adminimda --authenticationDatabase admin --eval  'db.getSiblingDB(\"ShareLinker\").createUser({user:\"Sr233\", pwd:\"greatPassword_QWErty\", roles:[{role:\"readWrite\",db:\"ShareLinker\"}]});' > /dev/null 2>&1; do sleep 0.1; done" 
+    command: sh -c "sleep 15 && mongo --host mongo -u admin -p adminimda --authenticationDatabase admin --eval  'db.getSiblingDB(\"ShareLinker\").createUser({user:\"Sr233\", pwd:\"greatPassword_QWErty\", roles:[{role:\"readWrite\",db:\"ShareLinker\"}]});'" 

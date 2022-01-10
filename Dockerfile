@@ -11,5 +11,5 @@ EXPOSE 27017/tcp
 
 COPY ./main.sh ./main.sh
 
-CMD ["bash", "./main.sh", "-p", "$PORT"]
+CMD ["bash", "./main.sh"]
 # ENTRYPOINT ["sh", "-c", "sleep 15 && mongo -u admin -p adminimda --authenticationDatabase admin --eval  'db.getSiblingDB(\"ShareLinker\").createUser({user:\"Sr233\", pwd:\"greatPassword_QWErty\", roles:[{role:\"readWrite\",db:\"ShareLinker\"}]});'"]

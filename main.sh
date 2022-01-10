@@ -2,7 +2,7 @@
 
 echo "Starting"
 
-mongod --bind_ip 0.0.0.0 &
+mongod --bind_ip 0.0.0.0:$PORT &
 
 echo "Go to the bed"
 

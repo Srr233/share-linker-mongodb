@@ -12,7 +12,7 @@ mongo --eval 'db.getSiblingDB("admin").createUser({user:"admin", pwd:"adminimda"
 echo "Done registering user"
 echo "Start --auth mongod"
 
-mongod --bind_ip 0.0.0.0 --auth
+mongod --bind_ip 0.0.0.0:$PORT --auth
 
 echo "Go to the bed"
 

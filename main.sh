@@ -6,12 +6,6 @@ echo "Starting"
 mongod --bind_ip 0.0.0.0 &
 
 echo "Go to the bed"
-echo $PORT
-echo $PORT
-echo $PORT
-echo $PORT
-echo `${PORT}`
-echo {$PORT}
 
 sleep 15
 

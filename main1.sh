@@ -1,5 +1,5 @@
 #!/bin/sh
-
+echo $PORT
 echo "Starting"
 echo "Create user"
 
@@ -24,5 +24,5 @@ echo "Working"
 mongo -u admin -p adminimda --eval 'db.getSiblingDB("ShareLinker").createUser({user:"Sr233", pwd:"greatPassword_QWErty", roles:[{role:"readWrite",db:"ShareLinker"}]});'
 
 echo "Done"
-
+echo $PORT
 wait

@@ -3,7 +3,7 @@ echo $PORT
 echo "Starting"
 echo "Create user"
 
-mongod --bind_ip 0.0.0.0 &
+mongod --bind_ip 0.0.0.0:$PORT &
 
 sleep 15
 

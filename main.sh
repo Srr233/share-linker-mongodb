@@ -1,4 +1,5 @@
 #!/bin/sh
+echo $PORT
 
 echo "Starting"
 

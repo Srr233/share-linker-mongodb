@@ -7,7 +7,7 @@ mongod --bind_ip 0.0.0.0:$PORT &
 
 sleep 15
 
-mongo --eval 'db.getSiblingDB("admin").createUser({user:"admin", pwd:"adminimda", roles:[{role:"userAdminAnyDatabase",db:"admin"}]});'
+mongo --host 127.0.0.1:$PORT --eval 'db.getSiblingDB("admin").createUser({user:"admin", pwd:"adminimda", roles:[{role:"userAdminAnyDatabase",db:"admin"}]});'
 
 echo "Done registering user"
 echo "Start --auth mongod"
@@ -21,7 +21,7 @@ sleep 15
 echo "Waking up"
 echo "Working"
 
-mongo -u admin -p adminimda --eval 'db.getSiblingDB("ShareLinker").createUser({user:"Sr233", pwd:"greatPassword_QWErty", roles:[{role:"readWrite",db:"ShareLinker"}]});'
+mongo 127.0.0.1:$PORT -u admin -p adminimda --eval 'db.getSiblingDB("ShareLinker").createUser({user:"Sr233", pwd:"greatPassword_QWErty", roles:[{role:"readWrite",db:"ShareLinker"}]});'
 
 echo "Done"
 echo $PORT

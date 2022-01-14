@@ -7,4 +7,4 @@ EXPOSE 27017/tcp
 # COPY ./main1.sh ./main.sh
 
 # ENTRYPOINT ["bash", "./main.sh"]
-CMD [ "bash", "mongod" ]
+CMD [ "sh", "-c", "mongod" ]

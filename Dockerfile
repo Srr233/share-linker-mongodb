@@ -2,9 +2,9 @@ FROM mongo:latest
 
 # VOLUME [ "/data/db" ]
 
-EXPOSE 27017/tcp
+EXPOSE $PORT
 
 # COPY ./main1.sh ./main.sh
 
-# ENTRYPOINT ["bash", "./main.sh"]
+# cmd ["bash", "./main.sh"]
 CMD [ "sh", "-c", "mongod" ]
